@@ -1,0 +1,344 @@
+{
+  "date": "2026-11-25",
+  "lessons": [
+    {
+      "sourceId": "book-psychology-of-money",
+      "itemUrl": "book:book-psychology-of-money/ronald-read",
+      "itemTitle": "The Psychology of Money: the story of Ronald Read",
+      "sourceTitle": "The Psychology of Money, Morgan Housel",
+      "sourceUrl": null,
+      "title": "The janitor who died a millionaire",
+      "topic": "finance",
+      "subtopic": "psychology-of-money",
+      "difficulty": 1,
+      "concepts": ["compounding", "behavior", "patience"],
+      "cards": [
+        { "type": "hook", "text": "A janitor in Vermont left behind more than 8 million dollars. He never had a big salary. So how?" },
+        { "type": "idea", "text": "Getting rich is less about how smart you are and more about how you behave. Saving steadily and leaving it alone for decades beats clever moves." },
+        { "type": "example", "text": "Ronald Read fixed cars and swept floors. He saved what he could, bought shares in solid companies, and waited for decades. Morgan Housel opens his book with this story." },
+        { "type": "use", "text": "You are 20. Time is the one edge you have over almost every investor alive. Small amounts invested now get decades to grow." },
+        { "type": "say", "text": "With money, behavior beats brains. A janitor who saved and waited for decades ended up with millions." }
+      ],
+      "word": { "word": "compounding", "meaning": "When your gains start earning their own gains, so growth speeds up over time.", "example": "Compounding is why starting at 20 matters more than starting big." },
+      "quiz": { "question": "What does the Ronald Read story mainly show?", "choices": ["You need a high salary to build wealth", "Patient behavior over decades matters more than being clever", "Picking the right stock once is enough"], "answer": 1 },
+      "tutorQuestion": "What is one money habit you could start this month and realistically keep for ten years?"
+    },
+    {
+      "sourceId": "book-intelligent-investor",
+      "itemUrl": "book:book-intelligent-investor/mr-market",
+      "itemTitle": "The Intelligent Investor: Mr. Market",
+      "sourceTitle": "The Intelligent Investor, Benjamin Graham",
+      "sourceUrl": null,
+      "title": "Meet Mr. Market",
+      "topic": "finance",
+      "subtopic": "great-investors",
+      "difficulty": 1,
+      "concepts": ["mr. market", "price vs value", "emotions"],
+      "cards": [
+        { "type": "hook", "text": "Imagine a business partner who shows up every day offering to buy your share or sell you his. Some days he is thrilled. Some days he is terrified." },
+        { "type": "idea", "text": "That partner is the stock market. Benjamin Graham called him Mr. Market. His daily price is an offer, not a verdict on what the business is worth." },
+        { "type": "example", "text": "Graham taught this story to his students, including Warren Buffett. The point: you can ignore Mr. Market's mood, or use it when he offers a silly price." },
+        { "type": "use", "text": "When a stock drops 10 percent in a day, ask: did the business change, or just the mood? Those are very different things." },
+        { "type": "say", "text": "The market is like a moody partner quoting you a new price every day. You don't have to agree with him." }
+      ],
+      "word": { "word": "intrinsic value", "meaning": "What a business is really worth based on the money it can make, separate from today's price.", "example": "The price fell, but the intrinsic value of the company did not change." },
+      "quiz": { "question": "In Graham's story, what is Mr. Market's daily price?", "choices": ["An offer you are free to ignore", "The true value of the business", "A signal to sell right away"], "answer": 0 }
+    },
+    {
+      "sourceId": "book-intelligent-investor",
+      "itemUrl": "book:book-intelligent-investor/margin-of-safety",
+      "itemTitle": "The Intelligent Investor: margin of safety",
+      "sourceTitle": "The Intelligent Investor, Benjamin Graham",
+      "sourceUrl": null,
+      "title": "Leave room to be wrong",
+      "topic": "finance",
+      "subtopic": "great-investors",
+      "difficulty": 2,
+      "concepts": ["margin of safety", "price vs value", "risk"],
+      "cards": [
+        { "type": "hook", "text": "Engineers build bridges to hold far more weight than they expect. Great investors do the same thing with money." },
+        { "type": "idea", "text": "Margin of safety means only buying when the price is well below what you think something is worth. The gap protects you if your estimate is off." },
+        { "type": "example", "text": "Graham called margin of safety the central concept of investment. He closes The Intelligent Investor with a whole chapter on it." },
+        { "type": "use", "text": "Your estimates will be wrong sometimes. In investing, budgets or project deadlines, the question is whether you left enough room to survive that." },
+        { "type": "say", "text": "Good investors don't try to be exactly right. They buy with enough of a discount that they can be wrong and still be fine." }
+      ],
+      "word": { "word": "margin of safety", "meaning": "The gap between what you pay and what you think something is worth.", "example": "She only bought when there was a wide margin of safety." },
+      "quiz": { "question": "What is a margin of safety for?", "choices": ["Making gains bigger in good times", "Protecting you when your estimate turns out wrong", "Predicting next week's price"], "answer": 1 }
+    },
+    {
+      "sourceId": "book-technical-analysis",
+      "itemUrl": "book:book-technical-analysis/trend",
+      "itemTitle": "Technical Analysis of the Financial Markets: trend",
+      "sourceTitle": "Technical Analysis of the Financial Markets, John J. Murphy",
+      "sourceUrl": null,
+      "title": "How to spot a trend",
+      "topic": "finance",
+      "subtopic": "reading-charts",
+      "difficulty": 1,
+      "concepts": ["trend", "peaks and troughs", "charts"],
+      "cards": [
+        { "type": "hook", "text": "Prices never move in a straight line. So how do chart readers decide a stock is going up?" },
+        { "type": "idea", "text": "They look at the zigzag. In an uptrend, each peak is higher than the last and each dip stops higher than the last dip. Like climbing stairs with small steps back." },
+        { "type": "example", "text": "John Murphy's textbook defines an uptrend as a series of rising peaks and troughs. A downtrend is the reverse. Flat peaks and troughs mean a sideways market." },
+        { "type": "use", "text": "Open any chart and mark the last three peaks and three dips. Are they rising, falling or flat? That one check tells you the trend." },
+        { "type": "say", "text": "An uptrend is just higher highs and higher lows. If the dips keep stopping higher, the trend is still alive." }
+      ],
+      "word": { "word": "trough", "meaning": "The low point of a dip on a chart, before the price turns back up.", "example": "Each trough was higher than the last, so the uptrend held." },
+      "quiz": { "question": "What defines an uptrend on a chart?", "choices": ["The price goes up every single day", "Rising peaks and rising troughs", "Trading volume keeps growing"], "answer": 1 }
+    },
+    {
+      "sourceId": "book-technical-analysis",
+      "itemUrl": "book:book-technical-analysis/support-resistance",
+      "itemTitle": "Technical Analysis of the Financial Markets: support and resistance",
+      "sourceTitle": "Technical Analysis of the Financial Markets, John J. Murphy",
+      "sourceUrl": null,
+      "title": "Floors and ceilings on a chart",
+      "topic": "finance",
+      "subtopic": "reading-charts",
+      "difficulty": 1,
+      "concepts": ["support", "resistance", "charts"],
+      "cards": [
+        { "type": "hook", "text": "Why do stocks often bounce at the same price again and again, as if there was a floor there?" },
+        { "type": "idea", "text": "Support is a price where buyers keep stepping in, like a floor. Resistance is where sellers keep showing up, like a ceiling. Both come from people remembering old prices." },
+        { "type": "example", "text": "Murphy points out a role reversal: once the price breaks clearly above a ceiling, that old resistance often becomes the new floor." },
+        { "type": "use", "text": "On any chart, draw a line where the price turned around at least twice. Watch what happens the next time it gets there." },
+        { "type": "say", "text": "Support is a floor where buyers show up and resistance is a ceiling where sellers do. Break a ceiling and it often becomes the new floor." }
+      ],
+      "word": { "word": "resistance", "meaning": "A price level where selling has repeatedly stopped a rise.", "example": "The stock hit resistance at 50 three times before breaking through." },
+      "quiz": { "question": "What often happens to a resistance level after the price breaks clearly above it?", "choices": ["It disappears and stops mattering", "It turns into support", "It moves higher by the same amount"], "answer": 1 },
+      "tutorQuestion": "Why do you think people remember old prices so strongly?"
+    },
+    {
+      "sourceId": "book-random-walk",
+      "itemUrl": "book:book-random-walk/dart-monkey",
+      "itemTitle": "A Random Walk Down Wall Street: the blindfolded monkey",
+      "sourceTitle": "A Random Walk Down Wall Street, Burton Malkiel",
+      "sourceUrl": null,
+      "title": "The monkey with the darts",
+      "topic": "finance",
+      "subtopic": "markets-economy",
+      "difficulty": 1,
+      "concepts": ["index funds", "efficient markets", "fees"],
+      "cards": [
+        { "type": "hook", "text": "An economist once claimed a blindfolded monkey throwing darts at the stock pages could match the experts." },
+        { "type": "idea", "text": "His point: prices already reflect what the public knows, so beating the market year after year is very hard. Buying the whole market cheaply is a strong default." },
+        { "type": "example", "text": "Burton Malkiel made the monkey claim in A Random Walk Down Wall Street. His advice was to buy a low-cost index fund, a fund that simply owns the whole market." },
+        { "type": "use", "text": "Before picking stocks with real money, ask what your edge is. If you can't name one, owning the whole market is the honest answer." },
+        { "type": "say", "text": "Most pros struggle to beat the market after fees. That's the case for owning the whole market through a cheap index fund." }
+      ],
+      "word": { "word": "index fund", "meaning": "A fund that owns every stock in a market list, instead of trying to pick winners.", "example": "She put her savings in an index fund and stopped checking prices." },
+      "quiz": { "question": "What was Malkiel's dart-throwing monkey meant to show?", "choices": ["Experts are bad at maths", "Beating the market consistently is very hard", "Stock prices are completely meaningless"], "answer": 1 }
+    },
+    {
+      "sourceId": "book-thinking-fast-slow",
+      "itemUrl": "book:book-thinking-fast-slow/bat-and-ball",
+      "itemTitle": "Thinking, Fast and Slow: the bat and ball problem",
+      "sourceTitle": "Thinking, Fast and Slow, Daniel Kahneman",
+      "sourceUrl": null,
+      "title": "Your brain has two speeds",
+      "topic": "psychology",
+      "subtopic": "understanding-behavior",
+      "difficulty": 1,
+      "concepts": ["system 1 and 2", "intuition", "thinking traps"],
+      "cards": [
+        { "type": "hook", "text": "A bat and a ball cost $1.10 together. The bat costs $1 more than the ball. How much is the ball?" },
+        { "type": "idea", "text": "If you thought 10 cents, that was your fast brain. It answers instantly and feels sure. Your slow brain does the careful work, but it is lazy." },
+        { "type": "example", "text": "The answer is 5 cents. Daniel Kahneman uses this puzzle to show the two modes he calls System 1 (fast, automatic) and System 2 (slow, effortful)." },
+        { "type": "use", "text": "When an answer pops up instantly and the stakes are real, that is your cue to slow down and check it." },
+        { "type": "say", "text": "We have a fast gut brain and a slow careful one. Most mistakes happen when the fast one answers a question that needed the slow one." }
+      ],
+      "word": { "word": "intuition", "meaning": "A quick answer your mind produces without you working it out.", "example": "My intuition said 10 cents, and my intuition was wrong." },
+      "quiz": { "question": "In Kahneman's terms, what is System 2?", "choices": ["The fast, automatic mode", "The slow, effortful mode", "The emotional part of the brain"], "answer": 1 }
+    },
+    {
+      "sourceId": "book-thinking-fast-slow",
+      "itemUrl": "book:book-thinking-fast-slow/loss-aversion",
+      "itemTitle": "Thinking, Fast and Slow: loss aversion",
+      "sourceTitle": "Thinking, Fast and Slow, Daniel Kahneman",
+      "sourceUrl": null,
+      "title": "Why losing hurts more than winning",
+      "topic": "psychology",
+      "subtopic": "biases-decisions",
+      "difficulty": 1,
+      "concepts": ["loss aversion", "risk", "thinking traps"],
+      "cards": [
+        { "type": "hook", "text": "Coin flip. Tails, you lose $100. How much would heads need to pay before you'd take the bet?" },
+        { "type": "idea", "text": "Most people want about $200. Losing something hurts roughly twice as much as gaining the same thing feels good. Psychologists call it loss aversion." },
+        { "type": "example", "text": "Kahneman describes this coin flip in Thinking, Fast and Slow. He found most people need the possible gain to be about double the possible loss." },
+        { "type": "use", "text": "It explains why people hold losing stocks too long: selling makes the loss feel real. Ask instead: would I buy this today?" },
+        { "type": "say", "text": "Losses hurt about twice as much as equal gains feel good. That's why people hang on to bad bets instead of cutting them." }
+      ],
+      "word": { "word": "loss aversion", "meaning": "The tendency to feel a loss more strongly than a gain of the same size.", "example": "Loss aversion kept him holding a stock he no longer believed in." },
+      "quiz": { "question": "What does loss aversion say?", "choices": ["People avoid all risk", "A loss feels bigger than an equal gain", "People forget their losses quickly"], "answer": 1 },
+      "tutorQuestion": "Can you think of something you kept, or kept doing, mostly because giving it up felt like a loss?"
+    },
+    {
+      "sourceId": "book-thinking-fast-slow",
+      "itemUrl": "book:book-thinking-fast-slow/anchoring",
+      "itemTitle": "Thinking, Fast and Slow: anchoring",
+      "sourceTitle": "Thinking, Fast and Slow, Daniel Kahneman",
+      "sourceUrl": null,
+      "title": "The first number wins",
+      "topic": "psychology",
+      "subtopic": "biases-decisions",
+      "difficulty": 2,
+      "concepts": ["anchoring", "negotiation", "thinking traps"],
+      "cards": [
+        { "type": "hook", "text": "Can a random spin of a wheel change your answer to a factual question? It did in a famous experiment." },
+        { "type": "idea", "text": "Anchoring: the first number you see pulls your estimate toward it, even when the number has nothing to do with the question." },
+        { "type": "example", "text": "Kahneman and Tversky rigged a wheel to stop on 10 or 65, then asked what percent of UN countries are African. Average guesses: 25 percent after 10, 45 percent after 65." },
+        { "type": "use", "text": "In any negotiation, the first number sets the frame. Salary, a car, rent. Notice the anchor, or be the one who sets it." },
+        { "type": "say", "text": "The first number people hear drags their judgment toward it, even if it's random. That's why who names a price first matters." }
+      ],
+      "word": { "word": "anchor", "meaning": "A starting number that pulls later estimates toward it.", "example": "The sticker price was an anchor that made the discount look generous." },
+      "quiz": { "question": "In the wheel experiment, what changed people's guesses?", "choices": ["How much they knew about geography", "The random number the wheel landed on", "How long they had to think"], "answer": 1 }
+    },
+    {
+      "sourceId": "book-influence",
+      "itemUrl": "book:book-influence/reciprocity",
+      "itemTitle": "Influence: the rule of reciprocation",
+      "sourceTitle": "Influence, Robert Cialdini",
+      "sourceUrl": null,
+      "title": "The free Coke trick",
+      "topic": "psychology",
+      "subtopic": "persuasion",
+      "difficulty": 1,
+      "concepts": ["reciprocity", "persuasion", "favors"],
+      "cards": [
+        { "type": "hook", "text": "A stranger hands you a free Coke. Minutes later he asks you to buy raffle tickets. Do you buy more than you otherwise would?" },
+        { "type": "idea", "text": "Almost certainly. People feel a strong pull to repay favors, even ones they never asked for. Cialdini calls this the rule of reciprocation." },
+        { "type": "example", "text": "In a study by Dennis Regan, described in Influence, people who got an unrequested Coke bought twice as many raffle tickets as people who got nothing." },
+        { "type": "use", "text": "Free samples and small favors before a request are this rule at work. Spot it when it's used on you. Use it honestly by giving first." },
+        { "type": "say", "text": "People feel they must repay favors, even unwanted ones. That's why free samples work so well." }
+      ],
+      "word": { "word": "reciprocity", "meaning": "The urge to give something back when someone gives to you.", "example": "The free sample worked through plain reciprocity." },
+      "quiz": { "question": "What happened to people who received a free Coke in Regan's study?", "choices": ["They bought twice as many raffle tickets", "They liked the stranger less", "They refused to buy anything"], "answer": 0 }
+    },
+    {
+      "sourceId": "book-win-friends",
+      "itemUrl": "book:book-win-friends/names",
+      "itemTitle": "How to Win Friends and Influence People: remember names",
+      "sourceTitle": "How to Win Friends and Influence People, Dale Carnegie",
+      "sourceUrl": null,
+      "title": "The sweetest sound",
+      "topic": "psychology",
+      "subtopic": "connecting-with-people",
+      "difficulty": 1,
+      "concepts": ["names", "attention", "likeability"],
+      "cards": [
+        { "type": "hook", "text": "What is the one word almost everyone loves to hear, and most of us forget seconds after hearing it?" },
+        { "type": "idea", "text": "Their own name. Using someone's name shows you paid attention to them as a person. Forgetting it quietly says the opposite." },
+        { "type": "example", "text": "Dale Carnegie wrote that a person's name is, to that person, the sweetest and most important sound in any language." },
+        { "type": "use", "text": "At your new job, say each name back right away: \"Good to meet you, Sam.\" Use it once more before the chat ends. It sticks for you and lands for them." },
+        { "type": "say", "text": "People light up when you remember their name. Say it back when you meet them and once more before you leave." }
+      ],
+      "quiz": { "question": "According to Carnegie, why does using someone's name matter?", "choices": ["It makes you sound formal", "It is the most important sound to that person", "It helps you win arguments"], "answer": 1 },
+      "tutorQuestion": "Who is someone you met this week whose name you could use next time you see them?"
+    },
+    {
+      "sourceId": "book-atomic-habits",
+      "itemUrl": "book:book-atomic-habits/one-percent",
+      "itemTitle": "Atomic Habits: one percent better",
+      "sourceTitle": "Atomic Habits, James Clear",
+      "sourceUrl": null,
+      "title": "One percent a day",
+      "topic": "psychology",
+      "subtopic": "habits-motivation",
+      "difficulty": 1,
+      "concepts": ["habits", "compounding", "patience"],
+      "cards": [
+        { "type": "hook", "text": "Get 1 percent better every day for a year. How much better are you by the end? Not 365 percent." },
+        { "type": "idea", "text": "About 37 times better. Small gains multiply each other, the same way interest grows on interest. Tiny habits look useless for weeks, then add up fast." },
+        { "type": "example", "text": "James Clear does this maths in Atomic Habits: 1.01 multiplied by itself 365 times is about 37.78. Getting 1 percent worse daily takes you close to zero." },
+        { "type": "use", "text": "Stop judging a habit by this week's result. Judge it by direction. Ten pages a day is around a dozen books a year." },
+        { "type": "say", "text": "Tiny improvements multiply like compound interest. One percent better a day makes you about 37 times better in a year." }
+      ],
+      "word": { "word": "trajectory", "meaning": "The direction something is heading over time.", "example": "Your trajectory matters more than where you are today." },
+      "quiz": { "question": "Why does 1 percent a day add up to far more than 365 percent?", "choices": ["Because each gain builds on the gains before it", "Because habits get easier at night", "Because the year has leap days"], "answer": 0 }
+    },
+    {
+      "sourceId": "book-zero-to-one",
+      "itemUrl": "book:book-zero-to-one/contrarian-question",
+      "itemTitle": "Zero to One: the contrarian question",
+      "sourceTitle": "Zero to One, Peter Thiel",
+      "sourceUrl": null,
+      "title": "The interview question behind startups",
+      "topic": "business",
+      "subtopic": "starting-a-company",
+      "difficulty": 2,
+      "concepts": ["contrarian thinking", "secrets", "competition"],
+      "cards": [
+        { "type": "hook", "text": "Peter Thiel asks one interview question: \"What important truth do very few people agree with you on?\"" },
+        { "type": "idea", "text": "Great companies start from an answer to that. If everyone already agrees an idea is good, many people are already building it and profits get competed away." },
+        { "type": "example", "text": "In Zero to One, Thiel argues that copying what works takes the world from 1 to n. Creating something new takes it from 0 to 1." },
+        { "type": "use", "text": "When you have a business idea, ask who else is doing it and why you'd be different. \"Nobody thinks this works\" can be a good sign, if you know why they're wrong." },
+        { "type": "say", "text": "The best startups begin with something true that most people don't believe yet. If everyone agrees with your idea, you're probably late." }
+      ],
+      "word": { "word": "contrarian", "meaning": "Someone who goes against what most people believe.", "example": "Her contrarian bet looked crazy until it paid off." },
+      "quiz": { "question": "In Thiel's terms, what does going from 0 to 1 mean?", "choices": ["Copying something that works", "Creating something new", "Growing a company from one user to many"], "answer": 1 }
+    },
+    {
+      "sourceId": "book-lean-startup",
+      "itemUrl": "book:book-lean-startup/zappos-mvp",
+      "itemTitle": "The Lean Startup: the Zappos experiment",
+      "sourceTitle": "The Lean Startup, Eric Ries",
+      "sourceUrl": null,
+      "title": "Sell it before you build it",
+      "topic": "business",
+      "subtopic": "starting-a-company",
+      "difficulty": 1,
+      "concepts": ["mvp", "experiments", "customers"],
+      "cards": [
+        { "type": "hook", "text": "Zappos started with no warehouse and no stock. Just photos of shoes taken in local shops." },
+        { "type": "idea", "text": "Before building anything big, test whether people want it with the smallest version possible. Founders call it a minimum viable product, or MVP." },
+        { "type": "example", "text": "Eric Ries tells how Nick Swinmurn put shoe photos online. When someone ordered, he bought the pair at full price from the shop and mailed it. That proved people would buy shoes online." },
+        { "type": "use", "text": "For any idea, ask: what is the cheapest test that would prove me wrong this week? Run that before you write code or spend money." },
+        { "type": "say", "text": "Zappos tested the idea by selling shoes it didn't own yet. Prove people want it first, then build it properly." }
+      ],
+      "word": { "word": "validate", "meaning": "To check with real evidence that something is true.", "example": "They validated demand before building the warehouse." },
+      "quiz": { "question": "What is the purpose of a minimum viable product?", "choices": ["To launch the cheapest product forever", "To test if people want it before building the full thing", "To avoid talking to customers"], "answer": 1 }
+    },
+    {
+      "sourceId": "book-innovators-dilemma",
+      "itemUrl": "book:book-innovators-dilemma/minimills",
+      "itemTitle": "The Innovator's Dilemma: disruption from below",
+      "sourceTitle": "The Innovator's Dilemma, Clayton Christensen",
+      "sourceUrl": null,
+      "title": "How giants lose to worse products",
+      "topic": "business",
+      "subtopic": "innovation",
+      "difficulty": 2,
+      "concepts": ["disruption", "competition", "incentives"],
+      "cards": [
+        { "type": "hook", "text": "Big companies rarely die because they got lazy. Often they die because they did exactly what their best customers asked." },
+        { "type": "idea", "text": "A newcomer starts with a cheaper, worse product for customers the giant doesn't care about. It keeps improving until it is good enough for everyone. That is disruption." },
+        { "type": "example", "text": "Christensen describes steel minimills. They began with rebar, the cheapest steel. Big mills happily gave it up. The minimills then moved up, one product tier at a time." },
+        { "type": "use", "text": "When a product looks like a toy, ask if it's improving fast and who is already happy with it. That's often where the next big thing hides." },
+        { "type": "say", "text": "Disruption starts at the cheap, ignored end of a market. By the time the new thing is good enough, the giant has nowhere left to retreat." }
+      ],
+      "word": { "word": "incumbent", "meaning": "The established company that currently leads a market.", "example": "The incumbent ignored the startup until it was too late." },
+      "quiz": { "question": "Where does disruption usually begin, according to Christensen?", "choices": ["At the premium end with the best customers", "At the cheap end the big players don't care about", "Inside the biggest company's research lab"], "answer": 1 }
+    },
+    {
+      "sourceId": "book-high-output-management",
+      "itemUrl": "book:book-high-output-management/leverage",
+      "itemTitle": "High Output Management: managerial leverage",
+      "sourceTitle": "High Output Management, Andrew Grove",
+      "sourceUrl": null,
+      "title": "A manager's real output",
+      "topic": "business",
+      "subtopic": "leading-teams",
+      "difficulty": 2,
+      "concepts": ["leverage", "management", "teams"],
+      "cards": [
+        { "type": "hook", "text": "How do you measure what a manager produces, when they don't build the product themselves?" },
+        { "type": "idea", "text": "Andy Grove's answer: a manager's output is the output of their team, plus the teams they influence. So the best use of time is whatever lifts many people at once." },
+        { "type": "example", "text": "Grove, who ran Intel, called this leverage. Training is a classic case: a few hours of teaching can improve the work of a whole group for months." },
+        { "type": "use", "text": "Even as a new hire you can think this way. A clear doc or a fixed tool that saves ten teammates an hour is worth more than your one hour." },
+        { "type": "say", "text": "A manager's output is their team's output. So the highest value work is anything that makes many people better at once." }
+      ],
+      "word": { "word": "leverage", "meaning": "Getting a large result from a small amount of effort.", "example": "Writing the guide once had huge leverage across the team." },
+      "quiz": { "question": "According to Grove, what is a manager's output?", "choices": ["The hours they personally work", "The output of the teams they run and influence", "The number of meetings they hold"], "answer": 1 }
+    }
+  ]
+}

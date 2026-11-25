@@ -1,0 +1,17 @@
+{
+  "note": "Every source the daily task may use. Book shelf entries need no URL. Feed entries (rss, youtube, podcast, arxiv) must have a URL that was checked and returned content before being added here. Unchecked ideas go in sources.candidates.json.",
+  "sources": [
+    { "id": "book-psychology-of-money", "type": "book", "topic": "finance", "title": "The Psychology of Money, Morgan Housel" },
+    { "id": "book-intelligent-investor", "type": "book", "topic": "finance", "title": "The Intelligent Investor, Benjamin Graham" },
+    { "id": "book-random-walk", "type": "book", "topic": "finance", "title": "A Random Walk Down Wall Street, Burton Malkiel" },
+    { "id": "book-technical-analysis", "type": "book", "topic": "finance", "title": "Technical Analysis of the Financial Markets, John J. Murphy" },
+    { "id": "book-thinking-fast-slow", "type": "book", "topic": "psychology", "title": "Thinking, Fast and Slow, Daniel Kahneman" },
+    { "id": "book-influence", "type": "book", "topic": "psychology", "title": "Influence, Robert Cialdini" },
+    { "id": "book-win-friends", "type": "book", "topic": "psychology", "title": "How to Win Friends and Influence People, Dale Carnegie" },
+    { "id": "book-atomic-habits", "type": "book", "topic": "psychology", "title": "Atomic Habits, James Clear" },
+    { "id": "book-zero-to-one", "type": "book", "topic": "business", "title": "Zero to One, Peter Thiel" },
+    { "id": "book-lean-startup", "type": "book", "topic": "business", "title": "The Lean Startup, Eric Ries" },
+    { "id": "book-innovators-dilemma", "type": "book", "topic": "business", "title": "The Innovator's Dilemma, Clayton Christensen" },
+    { "id": "book-high-output-management", "type": "book", "topic": "business", "title": "High Output Management, Andrew Grove" }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "note": "NOT verified. These feed addresses were written from memory in an environment that could not reach them. Run `npm run sources:verify` on a machine with normal internet. It fetches each one and prints the entries that returned real feed content, ready to paste into sources.json. Do not copy any of these across by hand without checking.",
+  "candidates": [
+    { "id": "rss-collab-fund", "type": "rss", "topic": "finance", "title": "Collab Fund blog (Morgan Housel)", "url": "https://collabfund.com/blog/feed/" },
+    { "id": "rss-of-dollars-and-data", "type": "rss", "topic": "finance", "title": "Of Dollars and Data", "url": "https://ofdollarsanddata.com/feed/" },
+    { "id": "rss-a-wealth-of-common-sense", "type": "rss", "topic": "finance", "title": "A Wealth of Common Sense", "url": "https://awealthofcommonsense.com/feed/" },
+    { "id": "arxiv-q-fin", "type": "arxiv", "topic": "finance", "title": "arXiv quantitative finance", "url": "https://export.arxiv.org/api/query?search_query=cat:q-fin.GN&sortBy=submittedDate&max_results=10" },
+    { "id": "arxiv-econ", "type": "arxiv", "topic": "finance", "title": "arXiv economics", "url": "https://export.arxiv.org/api/query?search_query=cat:econ.GN&sortBy=submittedDate&max_results=10" },
+    { "id": "rss-bps-digest", "type": "rss", "topic": "psychology", "title": "BPS Research Digest", "url": "https://www.bps.org.uk/research-digest/rss.xml" },
+    { "id": "rss-psyche", "type": "rss", "topic": "psychology", "title": "Psyche", "url": "https://psyche.co/feed" },
+    { "id": "rss-behavioral-scientist", "type": "rss", "topic": "psychology", "title": "Behavioral Scientist", "url": "https://behavioralscientist.org/feed/" },
+    { "id": "rss-farnam-street", "type": "rss", "topic": "psychology", "title": "Farnam Street", "url": "https://fs.blog/feed/" },
+    { "id": "rss-hidden-brain", "type": "podcast", "topic": "psychology", "title": "Hidden Brain", "url": "https://feeds.simplecast.com/kwWc0lhf" },
+    { "id": "rss-paul-graham", "type": "rss", "topic": "business", "title": "Paul Graham essays", "url": "http://www.aaronsw.com/2002/feeds/pgessays.rss" },
+    { "id": "rss-stratechery", "type": "rss", "topic": "business", "title": "Stratechery (free posts)", "url": "https://stratechery.com/feed/" },
+    { "id": "rss-hbr", "type": "rss", "topic": "business", "title": "Harvard Business Review", "url": "https://feeds.hbr.org/harvardbusiness" },
+    { "id": "rss-first-round", "type": "rss", "topic": "business", "title": "First Round Review", "url": "https://review.firstround.com/feed.xml" },
+    { "id": "rss-how-i-built-this", "type": "podcast", "topic": "business", "title": "How I Built This", "url": "https://feeds.npr.org/510313/podcast.xml" }
+  ]
+}
