@@ -73,7 +73,7 @@ export default function Onboarding({ mode, initial }: Props) {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        step: steps.indexOf(next),
+        step: Math.max(0, steps.indexOf(next)),
         draft: { ...d, at: next },
         dailyGoal,
         nudgeTime: nudge,

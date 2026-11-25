@@ -44,11 +44,11 @@ export function rank<T extends RankLesson>(
     let pool = wantWild && wild.length ? wild : main.length ? main : wild;
     let i = pool.findIndex((l) => !blocked(l.topic));
     if (i === -1) {
-      // Every remaining lesson in this pool would break the variety rule. Try the other pool first.
-      const other = pool === main ? wild : main;
-      const j = other.findIndex((l) => !blocked(l.topic));
-      if (j !== -1) {
-        pool = other;
+      // Everything left in this pool would break the variety rule. Use another picked topic if there is one.
+      // If he only picked one topic, keep serving it: variety must never push in topics he didn't ask for.
+      const j = main.findIndex((l) => !blocked(l.topic));
+      if (pool !== main && j !== -1) {
+        pool = main;
         i = j;
       } else i = 0;
     }

@@ -4,6 +4,7 @@ export type Card = { type: "hook" | "idea" | "example" | "use" | "say"; text: st
 export type Word = { word: string; meaning: string; example: string };
 export type Quiz = { question: string; choices: string[]; answer: number };
 export type OnboardingDraft = {
+  at?: string; // the onboarding screen he is on, so closing the app resumes there
   goals?: string[];
   topics?: string[];
   subtopics?: Record<string, string[]>;

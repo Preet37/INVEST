@@ -10,6 +10,7 @@ export const dynamic = "force-dynamic";
 const body = z.object({
   step: z.number().int().min(0).max(30),
   draft: z.object({
+    at: z.string().max(20).optional(),
     goals: z.array(z.string()).optional(),
     topics: z.array(z.string()).optional(),
     subtopics: z.record(z.string(), z.array(z.string())).optional(),

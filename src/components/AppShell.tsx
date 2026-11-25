@@ -21,12 +21,14 @@ const Icon = ({ d }: { d: string }) => (
 export default function AppShell({ children, lockMinutes, bypass }: { children: React.ReactNode; lockMinutes: number; bypass: boolean }) {
   const path = usePathname();
   return (
-    <div className="desk:grid desk:grid-cols-[210px_1fr] desk:h-dvh">
+    <div className="flex h-dvh flex-col desk:flex-row">
+      <InstallBanner />
+      <main className="order-2 min-h-0 min-w-0 flex-1">{children}</main>
       <nav
         aria-label="Main"
-        className="fixed inset-x-0 bottom-0 z-30 flex border-t border-line bg-surface pb-[env(safe-area-inset-bottom)] desk:static desk:flex-col desk:gap-1 desk:border-t-0 desk:border-r desk:p-4 desk:pb-4"
+        className="order-3 z-30 flex shrink-0 border-t border-line bg-surface pb-[env(safe-area-inset-bottom)] desk:order-1 desk:w-[210px] desk:flex-col desk:gap-1 desk:border-t-0 desk:border-r desk:p-4"
       >
-        <div className="hidden desk:block px-3 pb-4 pt-2 text-xl font-bold tracking-tight">Invest</div>
+        <div className="hidden px-3 pb-4 pt-2 text-xl font-bold tracking-tight desk:block">Invest</div>
         {TABS.map((t) => {
           const on = t.href === "/" ? path === "/" : path.startsWith(t.href);
           return (
@@ -44,9 +46,7 @@ export default function AppShell({ children, lockMinutes, bypass }: { children: 
           );
         })}
       </nav>
-      <main className="min-w-0 pb-[var(--nav-h)] desk:pb-0 desk:h-dvh desk:overflow-hidden">{children}</main>
       <AppLock minutes={lockMinutes} bypass={bypass} />
-      <InstallBanner />
     </div>
   );
 }
@@ -119,7 +119,7 @@ function InstallBanner() {
   }, []);
   if (!show) return null;
   return (
-    <div className="fixed inset-x-3 top-[calc(env(safe-area-inset-top)+8px)] z-40 flex items-center gap-3 rounded-2xl border border-line bg-surface p-3 text-sm shadow-lg">
+    <div className="order-1 flex shrink-0 items-center gap-2 border-b border-line bg-surface px-4 pb-1 pt-[calc(env(safe-area-inset-top)+4px)] text-[13px] leading-snug desk:hidden">
       <div className="flex-1">
         <b>Put Invest on your home screen:</b> tap Share, then Add to Home Screen, then Add.
       </div>

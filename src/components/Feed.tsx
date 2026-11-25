@@ -7,7 +7,7 @@ import { topicName } from "@/lib/topics";
 import Tutor from "./Tutor";
 
 type Props = {
-  initial: { goal: number; doneToday: number; lessons: FeedLesson[]; savedIds: number[]; voice: boolean };
+  initial: { goal: number; doneToday: number; lessons: FeedLesson[]; savedIds: number[]; voice: boolean; today?: string };
   single?: boolean; // one saved lesson opened on its own: no daily stop
 };
 
@@ -153,8 +153,8 @@ export default function Feed({ initial, single }: Props) {
   };
 
   return (
-    <div className="relative h-[calc(100dvh-var(--nav-h))] desk:grid desk:h-dvh desk:grid-cols-[1fr_380px]">
-      <div className="relative h-full min-w-0">
+    <div className="relative flex h-full">
+      <div className="relative h-full min-w-0 flex-1">
         {!single && (
           <div className="pointer-events-none absolute inset-x-0 top-0 z-10 flex justify-center pt-[calc(env(safe-area-inset-top)+10px)]">
             <div className="rounded-full bg-surface/90 px-3 py-1 text-xs font-semibold text-muted shadow-sm backdrop-blur" aria-live="polite">
@@ -244,7 +244,7 @@ export default function Feed({ initial, single }: Props) {
           ))}
           {!single && (
             <section data-i={lessons.length} className="mx-auto flex h-full max-w-xl snap-start flex-col justify-center px-5 pt-[calc(env(safe-area-inset-top)+24px)]">
-              <EndPanel visible={active === lessons.length || lessons.length === 0} done={done} goal={initial.goal} onKeepGoing={keepGoing} />
+              <EndPanel visible={active === lessons.length || lessons.length === 0} done={done} goal={initial.goal} today={initial.today ?? ""} onKeepGoing={keepGoing} />
             </section>
           )}
         </div>
@@ -258,7 +258,7 @@ export default function Feed({ initial, single }: Props) {
       {/* Tutor: bottom sheet on a phone, always-open side panel on a laptop. */}
       {tutorOpen && <button aria-label="Close tutor" className="fixed inset-0 z-30 bg-black/40 desk:hidden" onClick={() => setTutorOpen(false)} />}
       <aside
-        className={`fixed inset-x-0 bottom-0 z-40 h-[78dvh] rounded-t-3xl border-t border-line bg-surface transition-transform duration-300 desk:static desk:z-auto desk:h-dvh desk:translate-y-0 desk:rounded-none desk:border-l desk:border-t-0 ${
+        className={`fixed inset-x-0 bottom-0 z-40 h-[78dvh] rounded-t-3xl border-t border-line bg-surface transition-transform duration-300 desk:static desk:z-auto desk:h-full desk:w-[380px] desk:shrink-0 desk:translate-y-0 desk:rounded-none desk:border-l desk:border-t-0 ${
           tutorOpen ? "translate-y-0" : "translate-y-full"
         }`}
         aria-label="Tutor"
@@ -331,7 +331,7 @@ function YourTurn({ lesson }: { lesson: FeedLesson }) {
 }
 
 // The daily stop: caught up, a short recap quiz, then see you tomorrow.
-function EndPanel({ visible, done, goal, onKeepGoing }: { visible: boolean; done: number; goal: number; onKeepGoing: () => void }) {
+function EndPanel({ visible, done, goal, today, onKeepGoing }: { visible: boolean; done: number; goal: number; today: string; onKeepGoing: () => void }) {
   const [items, setItems] = useState<RecapItem[] | null>(null);
   const [n, setN] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
@@ -341,12 +341,14 @@ function EndPanel({ visible, done, goal, onKeepGoing }: { visible: boolean; done
 
   useEffect(() => {
     if (visible && items === null) {
+      // The recap happens once a day. Coming back later goes straight to "See you tomorrow".
+      if (localStorage.getItem("invest_recap_day") === today) return setItems([]);
       fetch("/api/recap")
         .then((r) => r.json())
         .then((r) => setItems(r.items ?? []))
         .catch(() => setItems([]));
     }
-  }, [visible, items]);
+  }, [visible, items, today]);
 
   const item = items?.[n];
   const answer = (correct: boolean) => {
@@ -356,6 +358,7 @@ function EndPanel({ visible, done, goal, onKeepGoing }: { visible: boolean; done
     }
   };
   const nextQ = () => {
+    if (items && n + 1 >= items.length) localStorage.setItem("invest_recap_day", today);
     setN(n + 1);
     setPicked(null);
     setSentence("");
