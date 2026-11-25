@@ -34,8 +34,8 @@ See [TEST_REPORT.md](TEST_REPORT.md) for the new-user test results and known pro
    - `MARKET_DATA_API_KEY`: a free key from twelvedata.com (no credit card). Pattern Lab is empty without it.
    - `VAPID_PUBLIC_KEY` and `VAPID_PRIVATE_KEY`: run `npx web-push generate-vapid-keys` once and paste both. Needed for the daily nudge.
    - `GITHUB_REPO`: `Preet37/invest`. If the repo is private also add `GITHUB_TOKEN` (a read-only token), or leave both unset and lessons are read from the deployed files instead.
-4. Create the tables: `DATABASE_URL=<your Neon url> npm run db:migrate`
-5. Deploy, then load the lessons once: `curl -H "Authorization: Bearer <CRON_SECRET>" https://<your-domain>/api/cron/import`
+4. Deploy. The build creates the database tables and loads the lessons by itself (the `vercel-build` script), so there is nothing to run by hand.
+5. Redeploy after adding or changing environment variables so they take effect.
 6. Load prices once: `curl -H "Authorization: Bearer <CRON_SECRET>" https://<your-domain>/api/cron/market`. It loads up to 7 tickers per call, so run it again if you have a long watchlist.
 7. For the daily nudge, add two repository secrets on GitHub (Settings, Secrets and variables, Actions): `APP_URL` (your `https://` address) and `CRON_SECRET`. The workflow in `.github/workflows/nudge.yml` then checks every 30 minutes whether your chosen time has arrived. It lives on GitHub because Vercel's free plan only runs scheduled jobs once a day.
 8. Open `https://<your-domain>/setup` on your iPhone in Safari and follow the screens.

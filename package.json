@@ -14,7 +14,8 @@
     "content:check": "tsx scripts/check-content.ts",
     "test:unit": "tsx --test tests/*.test.ts",
     "test:e2e": "node tests/new-user.mjs",
-    "sources:verify": "tsx scripts/verify-sources.ts"
+    "sources:verify": "tsx scripts/verify-sources.ts",
+    "vercel-build": "drizzle-kit migrate && tsx scripts/import.ts && next build"
   },
   "dependencies": {
     "@simplewebauthn/browser": "^14.0.0",
