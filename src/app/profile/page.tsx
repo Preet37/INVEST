@@ -20,7 +20,7 @@ async function Load() {
   const [keys, prefs] = await Promise.all([db().select().from(passkey), db().select().from(topicPref)]);
   return (
     <Settings
-      initial={{ dailyGoal: u.dailyGoal, nudgeTime: u.nudgeTime, lockMinutes: u.lockMinutes, voice: u.voice }}
+      initial={{ dailyGoal: u.dailyGoal, nudgeTime: u.nudgeTime, lockMinutes: u.lockMinutes, voice: u.voice, watchlist: u.watchlist }}
       devices={keys.map((k) => k.deviceLabel)}
       topics={prefs.filter((p) => p.subtopic === "").map((p) => topicName(p.topic))}
       bypass={devBypass()}

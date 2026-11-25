@@ -10,7 +10,7 @@ const body = z
     nudgeTime: z.string().regex(/^\d\d:\d\d$/).nullable(),
     lockMinutes: z.number().int().min(1).max(1440),
     voice: z.boolean(),
-    watchlist: z.array(z.string().max(10)).max(12),
+    watchlist: z.array(z.string().regex(/^[A-Z][A-Z.\-]{0,7}$/)).max(6),
   })
   .partial();
 

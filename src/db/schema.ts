@@ -1,4 +1,4 @@
-import { pgTable, serial, integer, text, boolean, timestamp, jsonb, real, date, uniqueIndex } from "drizzle-orm/pg-core";
+import { pgTable, serial, integer, text, boolean, timestamp, jsonb, real, date, uniqueIndex, primaryKey, doublePrecision } from "drizzle-orm/pg-core";
 
 export type Card = { type: "hook" | "idea" | "example" | "use" | "say"; text: string };
 export type Word = { word: string; meaning: string; example: string };
@@ -17,6 +17,7 @@ export const user = pgTable("user", {
   goals: jsonb("goals").$type<string[]>().notNull().default([]),
   dailyGoal: integer("daily_goal").notNull().default(5),
   nudgeTime: text("nudge_time"),
+  lastNudgeDay: date("last_nudge_day"), // so the nudge goes out at most once a day
   lockMinutes: integer("lock_minutes").notNull().default(15),
   voice: boolean("voice").notNull().default(true),
   watchlist: jsonb("watchlist").$type<string[]>().notNull().default([]),
@@ -105,4 +106,28 @@ export const tutorMessage = pgTable("tutor_message", {
   content: text("content").notNull(),
   day: date("day").notNull(),
   at: timestamp("at").notNull().defaultNow(),
+});
+
+// End-of-day prices, filled by the daily market cron. The app only ever reads prices from here.
+export const price = pgTable(
+  "price",
+  {
+    symbol: text("symbol").notNull(),
+    day: date("day").notNull(),
+    open: doublePrecision("open").notNull(),
+    high: doublePrecision("high").notNull(),
+    low: doublePrecision("low").notNull(),
+    close: doublePrecision("close").notNull(),
+    volume: doublePrecision("volume").notNull().default(0),
+  },
+  (t) => [primaryKey({ columns: [t.symbol, t.day] })],
+);
+
+// One row per device that has turned on the daily nudge.
+export const pushSub = pgTable("push_sub", {
+  id: serial("id").primaryKey(),
+  endpoint: text("endpoint").notNull().unique(),
+  p256dh: text("p256dh").notNull(),
+  auth: text("auth").notNull(),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
 });

@@ -13,10 +13,10 @@ A personal learning feed that replaces endless scrolling. Short swipeable lesson
 | 5. Onboarding wired into ranking | Built |
 | 6. Tutor | Built, not yet tested against a live model |
 | 7. Daily stop, recap quiz, spaced repetition | Built |
-| 8. Pattern Lab | Not built (placeholder tab) |
-| 9. Daily nudge | Not built (the time is saved, nothing is sent) |
+| 8. Pattern Lab | Built. Tested on real AAPL prices only (see the test report) |
+| 9. Daily nudge | Built. Timing logic tested; real delivery to a phone is not |
 | 9b. Offline tutor | Not built |
-| 10. Idea map | Not built |
+| 10. Idea map | Built |
 
 See [TEST_REPORT.md](TEST_REPORT.md) for the new-user test results and known problems.
 
@@ -31,12 +31,20 @@ See [TEST_REPORT.md](TEST_REPORT.md) for the new-user test results and known pro
    - `RP_ID`: your domain with no `https://`, for example `invest-xyz.vercel.app`.
    - `RP_ORIGIN`: the same with `https://` in front.
    - `TUTOR_MODEL`: a model id from Vercel AI Gateway's free tier. Optional backup: `GEMINI_API_KEY`.
+   - `MARKET_DATA_API_KEY`: a free key from twelvedata.com (no credit card). Pattern Lab is empty without it.
+   - `VAPID_PUBLIC_KEY` and `VAPID_PRIVATE_KEY`: run `npx web-push generate-vapid-keys` once and paste both. Needed for the daily nudge.
    - `GITHUB_REPO`: `Preet37/invest`. If the repo is private also add `GITHUB_TOKEN` (a read-only token), or leave both unset and lessons are read from the deployed files instead.
 4. Create the tables: `DATABASE_URL=<your Neon url> npm run db:migrate`
 5. Deploy, then load the lessons once: `curl -H "Authorization: Bearer <CRON_SECRET>" https://<your-domain>/api/cron/import`
-6. Open `https://<your-domain>/setup` on your iPhone in Safari and follow the screens.
+6. Load prices once: `curl -H "Authorization: Bearer <CRON_SECRET>" https://<your-domain>/api/cron/market`. It loads up to 7 tickers per call, so run it again if you have a long watchlist.
+7. For the daily nudge, add two repository secrets on GitHub (Settings, Secrets and variables, Actions): `APP_URL` (your `https://` address) and `CRON_SECRET`. The workflow in `.github/workflows/nudge.yml` then checks every 30 minutes whether your chosen time has arrived. It lives on GitHub because Vercel's free plan only runs scheduled jobs once a day.
+8. Open `https://<your-domain>/setup` on your iPhone in Safari and follow the screens.
 
 Passkeys are tied to `RP_ID`. If you later move to a custom domain you will need to register again, so settle the domain first.
+
+## Pattern Lab data
+
+Prices come from Twelve Data, pulled once a day by the Vercel cron (`/api/cron/market`, 23:30 UTC) and stored in the database. The app never calls the provider while you use it. Charts are drawn from SPY, AAPL, MSFT, NVDA, AMZN, TSLA and your watchlist (Profile). The pattern notes (trend, support and resistance, volume, big one-day moves) are calculated from the prices, so they can't be made up. If the tutor model is connected it rewords them; if not, the calculated text is shown.
 
 ## Daily lessons
 

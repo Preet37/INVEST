@@ -162,6 +162,52 @@ async function run(browser, key, view) {
   await page.getByRole("heading", { name: "Profile" }).waitFor();
   await snap("profile");
 
+  // Pattern Lab and the idea map (Persona A only, as in the spec).
+  let lab = null;
+  let map = null;
+  if (key === "A") {
+    await page.getByLabel("Watchlist").fill("aapl");
+    await page.getByRole("button", { name: "Save", exact: true }).click();
+    await page.waitForTimeout(500);
+    await page.goto(BASE + "/lab");
+    await page.getByText("Name and dates hidden").waitFor({ timeout: 15000 });
+    await page.locator("canvas").first().waitFor();
+    const noteShown = await page.getByText("For learning, not financial advice.").first().isVisible();
+    const leaked = await page.evaluate(() => /AAPL/.test(document.querySelector("main section")?.textContent ?? ""));
+    await snap("lab-guess");
+    await page.getByRole("button", { name: /It climbs/ }).click();
+    await page.getByLabel("Why? (optional)").fill("Higher lows, looks like an uptrend.");
+    await page.getByRole("button", { name: "Show me what happened" }).click();
+    await page.getByRole("button", { name: "Next chart" }).waitFor({ timeout: 15000 });
+    await page.waitForTimeout(500);
+    await snap("lab-reveal");
+    const revealText = await page.locator("main section").first().innerText();
+    await page.getByRole("button", { name: "Next chart" }).scrollIntoViewIfNeeded();
+    await snap("lab-reveal-facts");
+    const current = page.locator("section", { hasText: "Do you notice any patterns?" }).first();
+    await current.scrollIntoViewIfNeeded();
+    await current.getByRole("button", { name: "Compare with what the app sees" }).click();
+    await page.waitForTimeout(400);
+    await current.scrollIntoViewIfNeeded();
+    await snap("lab-current");
+    lab = {
+      noteShown,
+      nameHiddenBeforeReveal: !leaked,
+      revealNamesTicker: /AAPL/.test(revealText),
+      revealHasTrend: /Trend\./.test(revealText),
+      currentMarketShown: await current.getByText("Trend.").isVisible(),
+      reveal: revealText.split("\n").filter(Boolean).slice(0, 4),
+    };
+
+    await page.goto(BASE + "/map");
+    await page.getByRole("heading", { name: "Idea map" }).waitFor();
+    const dots = page.locator("svg g[role=button]");
+    const summary = await page.getByText(/\d+ lessons?, \d+ connections?/).textContent();
+    await dots.first().click();
+    await snap("idea-map");
+    map = { dots: await dots.count(), summary: summary.split(".")[0], detailShown: await page.getByRole("link", { name: "Open this lesson" }).isVisible() };
+  }
+
   // Coming back later the same day: the feed should still say he's done.
   await page.goto(BASE + "/");
   await page.getByText("See you tomorrow.").waitFor({ timeout: 8000 }).catch(() => {});
@@ -186,6 +232,8 @@ async function run(browser, key, view) {
     stopShown,
     stillStoppedOnReturn: stillStopped,
     savedCount,
+    lab,
+    map,
     overflowOn: overflow,
     consoleErrors: errors,
   };

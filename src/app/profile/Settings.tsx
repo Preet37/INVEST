@@ -4,13 +4,9 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import QRCode from "qrcode";
 import { registerPasskey } from "@/lib/passkey-client";
+import { enablePush } from "@/lib/push-client";
 
-type S = {
-  dailyGoal: number;
-  nudgeTime: string | null;
-  lockMinutes: number;
-  voice: boolean;
-};
+type S = { dailyGoal: number; nudgeTime: string | null; lockMinutes: number; voice: boolean; watchlist: string[] };
 
 export default function Settings({
   initial,
@@ -67,7 +63,7 @@ export default function Settings({
       <div className="mx-auto max-w-xl px-5 pt-[calc(env(safe-area-inset-top)+20px)] pb-8">
         <div className="flex items-center justify-between">
           <h1 className="text-3xl font-bold tracking-tight">Profile</h1>
-          <span className="text-sm text-accent" role="status">
+          <span className="max-w-[60%] text-right text-sm text-accent" role="status">
             {msg}
           </span>
         </div>
@@ -104,8 +100,7 @@ export default function Settings({
           <span>
             <span className="font-semibold">Daily nudge</span>
             <span className="block text-sm text-muted">
-              Reminders aren't switched on yet. The time is saved for when they
-              are.
+              One reminder a day at this time.
             </span>
           </span>
           <span className="flex shrink-0 items-center gap-2">
@@ -125,6 +120,27 @@ export default function Settings({
             )}
           </span>
         </label>
+      {s.nudgeTime && (
+        <div className={row}>
+          <span className="text-sm text-muted">Each device has to allow notifications once.</span>
+          <button className="btn btn-quiet shrink-0" onClick={async () => setMsg((await enablePush()).message)}>
+            Turn on reminders here
+          </button>
+        </div>
+      )}
+      <div className={row}>
+        <div>
+          <div className="font-semibold">Idea map</div>
+          <div className="text-sm text-muted">See how what you've learned connects.</div>
+        </div>
+        <Link href="/map" className="btn btn-quiet shrink-0">
+          Open
+        </Link>
+      </div>
+
+      <h2 className="mt-6 text-sm font-bold uppercase tracking-wide text-muted">Pattern Lab</h2>
+      <Watchlist initial={s.watchlist} onSave={(watchlist) => set({ watchlist })} />
+
 
         <h2 className="mt-6 text-sm font-bold uppercase tracking-wide text-muted">
           Privacy
@@ -187,6 +203,34 @@ export default function Settings({
           Log out
         </button>
       </div>
+    </div>
+  );
+}
+
+function Watchlist({ initial, onSave }: { initial: string[]; onSave: (w: string[]) => void }) {
+  const [text, setText] = useState(initial.join(", "));
+  const [error, setError] = useState("");
+  const save = () => {
+    const list = [...new Set(text.toUpperCase().split(/[\s,]+/).filter(Boolean))];
+    if (list.length > 6) return setError("Six tickers at most.");
+    if (list.some((t) => !/^[A-Z][A-Z.\-]{0,7}$/.test(t))) return setError("Use ticker symbols like AAPL or SPY, separated by commas.");
+    setError("");
+    setText(list.join(", "));
+    onSave(list);
+  };
+  return (
+    <div className="border-b border-line py-3">
+      <label className="font-semibold" htmlFor="watchlist">
+        Watchlist
+      </label>
+      <p className="text-sm text-muted">Ticker symbols for the Current market charts. New ones show up after the next daily data pull.</p>
+      <div className="mt-2 flex gap-2">
+        <input id="watchlist" value={text} onChange={(e) => setText(e.target.value)} placeholder="AAPL, SPY, NVDA" autoCapitalize="characters" className="h-11 min-w-0 flex-1 rounded-lg border border-line bg-surface px-3" />
+        <button className="btn btn-quiet" onClick={save}>
+          Save
+        </button>
+      </div>
+      {error && <p className="mt-1 text-sm text-red-600 dark:text-red-400">{error}</p>}
     </div>
   );
 }

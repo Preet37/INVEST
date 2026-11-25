@@ -9,6 +9,7 @@ const TABS = [
   { href: "/", label: "Feed", icon: "M4 6h16M4 12h16M4 18h10" },
   { href: "/lab", label: "Pattern Lab", icon: "M4 18l5-6 4 3 7-9" },
   { href: "/saved", label: "Saved", icon: "M6 4h12v16l-6-4-6 4z" },
+  { href: "/map", label: "Idea map", icon: "M6 7a2 2 0 100-4 2 2 0 000 4zM18 9a2 2 0 100-4 2 2 0 000 4zM12 21a2 2 0 100-4 2 2 0 000 4zM7.5 6.5l9 1M7 7l4 10M17 9l-4 8", deskOnly: true },
   { href: "/profile", label: "Profile", icon: "M12 12a4 4 0 100-8 4 4 0 000 8zM4 20c1.5-4 4.5-5 8-5s6.5 1 8 5" },
 ];
 
@@ -36,7 +37,7 @@ export default function AppShell({ children, lockMinutes, bypass }: { children: 
               key={t.href}
               href={t.href}
               aria-current={on ? "page" : undefined}
-              className={`flex h-[58px] flex-1 flex-col items-center justify-center gap-0.5 text-[11px] font-medium desk:h-11 desk:flex-none desk:flex-row desk:justify-start desk:gap-3 desk:rounded-xl desk:px-3 desk:text-[15px] ${
+              className={`${"deskOnly" in t && t.deskOnly ? "hidden desk:flex" : "flex"} h-[58px] flex-1 flex-col items-center justify-center gap-0.5 text-[11px] font-medium desk:h-11 desk:flex-none desk:flex-row desk:justify-start desk:gap-3 desk:rounded-xl desk:px-3 desk:text-[15px] ${
                 on ? "text-accent desk:bg-bg" : "text-muted"
               }`}
             >

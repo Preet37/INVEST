@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import QRCode from "qrcode";
 import { GOALS, TOPICS } from "@/lib/topics";
 import { registerPasskey } from "@/lib/passkey-client";
+import { enablePush, pushSupported } from "@/lib/push-client";
 
 type Draft = {
   at?: string;
@@ -97,6 +98,8 @@ export default function Onboarding({ mode, initial }: Props) {
         router.replace("/onboarding");
         return;
       }
+      // Ask for notification permission only after he picked a time, and only where it can work.
+      if (step === "nudge" && nudge && pushSupported()) await enablePush().catch(() => {});
       const last = index === steps.length - 1;
       if (mode === "setup") {
         setAt(steps[index + 1]);
@@ -270,7 +273,13 @@ export default function Onboarding({ mode, initial }: Props) {
             <Choice on={nudgeChosen && nudge === null} onClick={() => { setNudge(null); setNudgeChosen(true); }}>
               No nudges
             </Choice>
-            <p className="text-sm text-muted">Reminders aren't switched on yet. Your time is saved and will be used once they are.</p>
+            {nudge !== null && nudgeChosen && (
+              <p className="text-sm text-muted">
+                {env.iosSafari
+                  ? "On iPhone, reminders only work once Invest is on your home screen. Your time is saved. After installing, turn reminders on in Profile."
+                  : "Your device will ask if Invest can send notifications. Say yes to get the reminder."}
+              </p>
+            )}
           </Screen>
         )}
 
