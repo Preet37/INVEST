@@ -15,6 +15,7 @@
     "test:unit": "tsx --test tests/*.test.ts",
     "test:e2e": "node tests/new-user.mjs",
     "sources:verify": "tsx scripts/verify-sources.ts",
+    "tailnet": "tsx scripts/tailnet.ts",
     "vercel-build": "drizzle-kit migrate && tsx scripts/import.ts && next build"
   },
   "dependencies": {
