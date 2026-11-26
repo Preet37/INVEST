@@ -42,6 +42,35 @@ See [TEST_REPORT.md](TEST_REPORT.md) for the new-user test results and known pro
 
 Passkeys are tied to `RP_ID`. If you later move to a custom domain you will need to register again, so settle the domain first.
 
+## Use it on your phone over Tailscale
+
+Passkeys only work on a secure origin with a matching `RP_ID`. Tailscale provides HTTPS for your Mac's tailnet hostname.
+
+1. Install Tailscale on the Mac and the iPhone. Sign both in to the same account, and run `tailscale up` on the Mac.
+2. Turn on MagicDNS and HTTPS certificates in the Tailscale admin console (DNS page).
+3. Run `npm run tailnet`. It runs `tailscale serve --bg 3000` and prints:
+
+   ```text
+   Serving http://localhost:<port> at https://<host>
+   Add to .env.local:
+   RP_ID=<host>
+   RP_ORIGIN=https://<host>
+   Then run: npm run dev
+   ```
+
+4. Put the printed `RP_ID` and `RP_ORIGIN` in `.env.local`, then run `npm run dev`.
+5. Open `https://<host>` on the iPhone in Safari, go to `/setup`, register a passkey, then use **Add to Home Screen**.
+
+A passkey registered on one hostname does not work on another. Register again on `/setup` if you switch between Vercel and the tailnet.
+
+To stop serving, run `tailscale serve --https=443 off`, or `tailscale serve reset`.
+
+### Troubleshooting
+
+- `Tailscale CLI not found. Install Tailscale and run: tailscale up`: Install Tailscale on the Mac, make its CLI available, then run `tailscale up`.
+- `Tailscale is not connected. Run: tailscale up`: Run `tailscale up` on the Mac and sign in to the same account as the iPhone.
+- `tailscale status: no DNS name (is MagicDNS on?)`: Turn on MagicDNS in the Tailscale admin console (DNS page), then run `npm run tailnet` again.
+
 ## Pattern Lab data
 
 Prices come from Twelve Data, pulled once a day by the Vercel cron (`/api/cron/market`, 23:30 UTC) and stored in the database. The app never calls the provider while you use it. Charts are drawn from SPY, AAPL, MSFT, NVDA, AMZN, TSLA and your watchlist (Profile). The pattern notes (trend, support and resistance, volume, big one-day moves) are calculated from the prices, so they can't be made up. If the tutor model is connected it rewords them; if not, the calculated text is shown.
